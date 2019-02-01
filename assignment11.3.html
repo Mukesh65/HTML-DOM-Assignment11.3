@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input type="button" name="creater" onclick="createNewElement();" value="Create Div"/><br><br>
+	<input type="button" name="remove" onclick="removeNewElement()" value="Remove Div" />
+	<div id="container" class="demo-div"></div>
+	<script type="text/javascript">
+		function createNewElement() {
+			let container = document.getElementById('container');
+			let newElement = document.createElement('div');
+			newElement.setAttribute('id', 'newElement');
+			newElement.innerText = "Created new element <strong>Div</strong>";
+			newElement.innerHTML = "Created new element <strong>Div</strong>";
+			let newElementId = newElement.getAttribute('id');
+			newElement.innerHTML += " with ID attributes as :#"+newElementId;
+			newElement.style.border = 'none';
+			newElement.style.background = 'yellow';
+			newElement.addEventListener('click', () => {
+				alert('i am a new element.');
+				//confirm('check');
+				//prompt('enter your name');
+			});
+			container.appendChild(newElement);
+		}
+
+		function removeNewElement() {
+			let container = document.querySelector('#container');
+			let newElement = document.getElementById('newElement');
+			container.removeChild(newElement);
+		}
+	</script>
+</body>
+</html>
